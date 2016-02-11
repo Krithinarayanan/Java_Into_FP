@@ -145,10 +145,10 @@ public class MobileStore {
 		 * inner class With this I can add expand search capability even when my
 		 * Mobile object grows without new methods
 		 */
-		MobileCriteria budgetCriteria = (mobile, budget, stock) -> mobile.getCost() > budget;
+		MobileCriteria budgetCriteria = (mobile, budget, stock) -> mobile.getCost() < budget;
 		List<Mobile> budgetLambdaCriteria = ms.findByCriteria(budgetCriteria, 12500, -1);
 
-		MobileCriteria budgetStockCriteria = (mobile, budget, stock) -> mobile.getCost() > budget
+		MobileCriteria budgetStockCriteria = (mobile, budget, stock) -> mobile.getCost() < budget
 				&& mobile.getStock() > stock;
 		List<Mobile> budgetStockLambdaCriteria = ms.findByCriteria(budgetStockCriteria, 14000, 5);
 
